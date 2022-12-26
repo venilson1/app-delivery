@@ -5,7 +5,7 @@ export const InputArea = styled.SafeAreaView`
     height: 60px;
     background-color: #e0dbdb;
     flex-direction: row;
-    border-radius: 30px;
+    border-radius: 15px;
     padding-left: 15px;
     align-items: center;
     margin-bottom: 15px;
@@ -16,6 +16,6 @@ export const Input = styled.TextInput`
     font-size: 16px;
     color: #E51300;
     font-weight: 500;
-    margin-left: 10px;
+    margin: 0 10px;
 `;
 
