@@ -14,8 +14,8 @@ import SignInput from "../../components/SignInput";
 import EmailIcon from "../../../assets/icons/email.svg";
 import LockIcon from "../../../assets/icons/lock-closed.svg";
 import { useEffect } from "react";
-import { Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default () => {
 
@@ -36,8 +36,6 @@ export default () => {
         });
     }
 
-
-
     return (
         <Container>
             <Pizza width={'100%'} height={160} />
@@ -50,7 +48,7 @@ export default () => {
                 rules={{
                     required: "E-mail é obrigátorio",
                     pattern: {
-                        message: "TESTE", 
+                        message: "E-mail inválido", 
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
                     }
                 }}

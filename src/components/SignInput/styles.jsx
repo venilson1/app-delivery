@@ -15,7 +15,7 @@ export const Input = styled.TextInput`
     flex: 1;
     font-size: 16px;
     color: #E51300;
-    font-weight: 500;
+    font-weight: 300;
     margin: 0 10px;
 `;
 
