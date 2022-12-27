@@ -15,15 +15,28 @@ import EmailIcon from "../../../assets/icons/email.svg";
 import LockIcon from "../../../assets/icons/lock-closed.svg";
 import { useEffect } from "react";
 import { Alert } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export default () => {
+
+    const navigation = useNavigation();
+
     const { handleSubmit, control, formState : { errors } } = useForm();
 
     useEffect(() => console.log({ email: errors?.email, senha: errors?.password}));
 
     const onSubmit = (data) => {
         console.log(data);
+        //recebo os dados dos inputs aqui
     };
+
+    const handleMessageButtonClick = () => {
+        navigation.reset({
+            routes: [{ name: 'SignUp' }]
+        });
+    }
+
+
 
     return (
         <Container>
@@ -73,7 +86,7 @@ export default () => {
                 </CustomButtom>
             </InputArea>
 
-            <SignMessageButton>
+            <SignMessageButton onPress={handleMessageButtonClick}>
                 <SignMessageText>Ainda não possui uma conta ?</SignMessageText>
                 <SignMessageTextBold>Cadastre-se</SignMessageTextBold>
             </SignMessageButton>
