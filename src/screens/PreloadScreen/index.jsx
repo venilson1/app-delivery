@@ -13,6 +13,11 @@ export default () => {
             const token = await AsyncStorage.getItem('token');
     
             if(!token) return navigation.navigate('SignIn');
+
+            navigation.reset({ 
+                routes : [{ name : 'MainTab' }]
+            });
+
         }
         checkToken();
     }, [])

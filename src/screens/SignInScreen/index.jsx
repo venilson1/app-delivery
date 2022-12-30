@@ -1,4 +1,9 @@
+import { useContext, useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { AuthContext } from "../../contexts/AuthContext";
+import { useNavigation } from "@react-navigation/native";
+import SignInput from "../../components/SignInput";
+
 import { 
     Container, 
     CustomButtom, 
@@ -8,26 +13,42 @@ import {
     SignMessageText, 
     SignMessageTextBold
  } from "./styles";
-import Pizza from "../../../assets/icons/pizza.svg";
-import SignInput from "../../components/SignInput";
 
 import EmailIcon from "../../../assets/icons/email.svg";
 import LockIcon from "../../../assets/icons/lock-closed.svg";
-import { useEffect } from "react";
-import { useNavigation } from "@react-navigation/native";
-import { ScrollView } from "react-native-gesture-handler";
+import Pizza from "../../../assets/icons/pizza.svg";
+
+
 
 export default () => {
-
+    
+    const { login } = useContext(AuthContext);
     const navigation = useNavigation();
 
     const { handleSubmit, control, formState : { errors } } = useForm();
 
     useEffect(() => console.log({ email: errors?.email, senha: errors?.password}));
 
-    const onSubmit = (data) => {
-        console.log(data);
-        //recebo os dados dos inputs aqui
+    const onSubmit = async (data) => {
+        const { email, password } = data;
+
+        try {
+
+            const response = await login({email, password});
+
+            if(response) navigation.reset({ 
+                routes : [{ name : 'MainTab' }]
+            });
+
+            alert('deu certo')
+        } catch (error) {
+            alert(error);
+        }
+
+
+
+
+
     };
 
     const handleMessageButtonClick = () => {
