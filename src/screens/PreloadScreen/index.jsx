@@ -1,11 +1,13 @@
 import { Container, LoadingIcon } from "./styles";
 import Pizza from "../../../assets/icons/pizza.svg";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export default () => {
 
+    const { setUser } = useContext(AuthContext);
     const navigation = useNavigation();
 
     useEffect(() => {
@@ -14,10 +16,7 @@ export default () => {
     
             if(!token) return navigation.navigate('SignIn');
 
-            navigation.reset({ 
-                routes : [{ name : 'MainTab' }]
-            });
-
+            setUser(true);
         }
         checkToken();
     }, [])

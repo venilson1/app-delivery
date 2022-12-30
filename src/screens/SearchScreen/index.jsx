@@ -1,5 +1,6 @@
 import { Container } from "./styles";
 import { useNavigation } from "@react-navigation/native";
+import { Text } from "react-native";
 
 export default () => {
 
@@ -7,7 +8,7 @@ export default () => {
 
     return (
         <Container>
-            <span>Search</span>
+            <Text>Search</Text>
         </Container>
     )
 }

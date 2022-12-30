@@ -15,6 +15,9 @@ export default function AuthProvider({children}){
             const { token } = response.data;
     
             await AsyncStorage.setItem("token", token);
+
+            setUser(true);
+
             return true;
     
         } catch (error) {
@@ -24,7 +27,7 @@ export default function AuthProvider({children}){
 
     return (
         <AuthContext.Provider value={{
-            authenticated: !!user, user, login
+            authenticated: !!user, user, login, setUser
         }}>
             {children}
         </AuthContext.Provider>

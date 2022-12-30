@@ -33,14 +33,8 @@ export default () => {
         const { email, password } = data;
 
         try {
-
             const response = await login({email, password});
-
-            if(response) navigation.reset({ 
-                routes : [{ name : 'MainTab' }]
-            });
-
-            alert('deu certo')
+            alert(response);
         } catch (error) {
             alert(error);
         }

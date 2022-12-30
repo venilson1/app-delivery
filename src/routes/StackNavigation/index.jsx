@@ -1,6 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import AuthProvider, { AuthContext } from "../../contexts/AuthContext";
 import PreloadScreen from "../../screens/PreloadScreen";
 import SignInScreen from "../../screens/SignInScreen";
 import SignUpScreen from "../../screens/SignUpScreen";
